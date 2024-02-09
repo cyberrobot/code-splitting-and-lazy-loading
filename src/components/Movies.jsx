@@ -1,15 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../App.css';
 import { Route } from '../routes';
+import { Search } from './Search';
 
 export const Movies = () => {
   const { results: movies } = Route.useLoaderData();
-
+  const [filteredMovies, setFilteredMovies] = useState(movies);
+  const onChange = (e) => {
+    const filtered = movies.filter((movie) =>
+      movie.title.toLowerCase().includes(e.target.value.toLowerCase())
+    );
+    setFilteredMovies(filtered);
+  };
   return (
     <div className="App">
       <h1>Movies</h1>
+      <Search onChange={onChange} />
       <ul className="movie-list">
-        {movies.map((movie) => (
+        {filteredMovies.map((movie) => (
           <li className="card" key={movie.id}>
             <a href={`/movies/${movie.id}`}>
               <div className="img-container">
