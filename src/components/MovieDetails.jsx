@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route } from '../routes/movies/$id';
+import { Route } from '../routes/movies/$id.lazy';
 
 export const MovieDetails = () => {
   const movieData = Route.useLoaderData();

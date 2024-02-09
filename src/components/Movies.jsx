@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import '../App.css';
 import { Route } from '../routes';
 import { Search } from './Search';
+import { Link } from '@tanstack/react-router';
 
 export const Movies = () => {
   const { results: movies } = Route.useLoaderData();
@@ -19,12 +20,12 @@ export const Movies = () => {
       <ul className="movie-list">
         {filteredMovies.map((movie) => (
           <li className="card" key={movie.id}>
-            <a href={`/movies/${movie.id}`}>
+            <Link to={`/movies/${movie.id}`}>
               <div className="img-container">
                 <img src={movie.poster_path} alt={movie.title} />
               </div>
               <h2>{movie.title}</h2>
-            </a>
+            </Link>
           </li>
         ))}
       </ul>

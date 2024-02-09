@@ -24,7 +24,7 @@ const IndexRoute = IndexImport.update({
 const MoviesIdRoute = MoviesIdImport.update({
   path: '/movies/$id',
   getParentRoute: () => rootRoute,
-} as any)
+} as any).lazy(() => import('./routes/movies/$id.lazy').then((d) => d.Route))
 
 // Populate the FileRoutesByPath interface
 
