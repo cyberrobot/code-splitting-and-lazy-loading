@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import '../App.css';
-import { Route } from '../routes';
+import { useLoaderData, Link } from 'react-router-dom';
 import { Search } from './Search';
-import { Link } from '@tanstack/react-router';
 
 export const Movies = () => {
-  const { results: movies } = Route.useLoaderData();
+  const { results: movies } = useLoaderData();
   const [filteredMovies, setFilteredMovies] = useState(movies);
   const onChange = (e) => {
     const filtered = movies.filter((movie) =>

@@ -1,14 +1,40 @@
 import React, { StrictMode } from 'react';
 import './index.css';
 import ReactDOM from 'react-dom/client';
-import { RouterProvider, createRouter } from '@tanstack/react-router';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { Movies } from './components/Movies';
+import { fetchMoviesList } from './utils/data';
+import { Root } from './components/Root';
 
-// Import the generated route tree
-import { routeTree } from './routeTree.gen';
+// const RoutesJSX = (
+//   <Route path="/" element={<Root />}>
+//     <Route index element={<Movies />} loader={() => fetchMoviesList()} />
+//     <Route
+//       path="/movies/:id"
+//       lazy={() => import('./components/LazyMovieDetails')}
+//     />
+//   </Route>
+// );
 
-// Create a new router instance
-const router = createRouter({ routeTree });
+// const routes = createRoutesFromElements(RoutesJSX);
 
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <Root />,
+    children: [
+      {
+        path: '/',
+        element: <Movies />,
+        loader: () => fetchMoviesList(),
+      },
+      {
+        path: '/movies/:id',
+        lazy: () => import('./components/LazyMovieDetails'),
+      },
+    ],
+  },
+]);
 // Render the app
 const rootElement = document.getElementById('root');
 if (!rootElement.innerHTML) {

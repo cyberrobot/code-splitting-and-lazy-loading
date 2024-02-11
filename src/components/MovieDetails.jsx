@@ -1,8 +1,8 @@
 import React from 'react';
-import { Route } from '../routes/movies/$id.lazy';
+import { useLoaderData } from 'react-router-dom';
 
-export const MovieDetails = () => {
-  const movieData = Route.useLoaderData();
+const MovieDetails = () => {
+  const movieData = useLoaderData();
   return (
     <div className="movie-details">
       <div className="thumbnail">
@@ -23,3 +23,5 @@ export const MovieDetails = () => {
     </div>
   );
 };
+
+export default MovieDetails;
