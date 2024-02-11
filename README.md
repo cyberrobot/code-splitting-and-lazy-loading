@@ -1,8 +1,21 @@
-# React + Vite
+# Code splitting and lazy loading
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**React Router example**
 
-Currently, two official plugins are available:
+```bash
+git clone -b react-router-dom git@github.com:cyberrobot/code-splitting-and-lazy-loading.git
+```
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+**Tanstack Router example**
+
+```bash
+git clone -b tanstack-router git@github.com:cyberrobot/code-splitting-and-lazy-loading.git
+```
+
+**Start the project**
+
+```bash
+cd code-splitting-and-lazy-loading
+npm install
+npm run dev
+```
