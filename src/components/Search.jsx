@@ -1,4 +1,5 @@
-import React, { forwardRef } from 'react';
+import { forwardRef } from 'react';
+import PropTypes from 'prop-types';
 import { SearchIcon } from '../icons/SearchIcon';
 import { debounce } from '../utils/input';
 
@@ -18,3 +19,10 @@ export const Search = forwardRef(
     );
   }
 );
+
+Search.displayName = 'Search';
+
+Search.propTypes = {
+  onChange: PropTypes.func.isRequired,
+  placeholder: PropTypes.string,
+};
