@@ -6,18 +6,6 @@ import { Movies } from './components/Movies';
 import { fetchMoviesList } from './utils/data';
 import { Root } from './components/Root';
 
-// const RoutesJSX = (
-//   <Route path="/" element={<Root />}>
-//     <Route index element={<Movies />} loader={() => fetchMoviesList()} />
-//     <Route
-//       path="/movies/:id"
-//       lazy={() => import('./components/LazyMovieDetails')}
-//     />
-//   </Route>
-// );
-
-// const routes = createRoutesFromElements(RoutesJSX);
-
 const router = createBrowserRouter([
   {
     path: '/',
